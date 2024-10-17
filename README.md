@@ -1,5 +1,7 @@
 # 3-tier-rule-engine
 Developed a simple 3-tier rule engine application(Simple UI, API and Backend, Data) to determine user eligibility based on attributes like age, department, income, spend.
+
+
 1.User Interface (UI)
 Purpose: Provide a simple interface for users to input their attributes (age, department, income, etc.) and view eligibility results. Also allow admins to create or modify rules.
 Tech Stack: simple HTML/CSS.

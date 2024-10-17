@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Rule Engine - Eligibility Form </title>
+    <link rel="stylesheet" href="rule.css">
+</head>
+<body>
+
+<div class="form-container">
+    <h1>RULE ENGINE</h1>
+    <h2>Eligibility Form</h2>
+    <form id="userForm">
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" name="age" required />
+        </div>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" required />
+        </div>
+        <div class="form-group">
+            <label for="salary">Salary</label>
+            <input type="number" id="salary" name="salary" required />
+        </div>
+        <div class="form-group">
+            <label for="experience">Experience (Years)</label>
+            <input type="number" id="experience" name="experience" required />
+        </div>
+        <button type="submit">Check Eligibility</button>
+    </form>
+    <div class="message" id="message"></div>
+</div>
+
+<script>
+    const form = document.getElementById("userForm");
+    form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const age = document.getElementById("age").value;
+        const department = document.getElementById("department").value;
+        const salary = document.getElementById("salary").value;
+        const experience = document.getElementById("experience").value;
+
+        const response = await fetch("/evaluate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ age, department, salary, experience })
+        });
+
+        const result = await response.json();
+        const messageElement = document.getElementById("message");
+        messageElement.textContent = result.eligible ? "You are Eligible!" : "You are Not Eligible!";
+        messageElement.style.color = result.eligible ? "green" : "red";
+    });
+</script>
+
+</body>
+</html>

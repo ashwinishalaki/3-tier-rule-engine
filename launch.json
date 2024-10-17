@@ -1,0 +1,24 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: FastAPI",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": [
+                "main:app",
+                "--reload"
+            ],
+            "jinja": true
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Open rule.html",
+            "file": "c:\\Users\\DELL\\Documents\\zeotap\\rule.html"
+        }
+    ]
+}
